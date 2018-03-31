@@ -1,11 +1,12 @@
 pragma solidity ^0.4.17;
 
-"../contracts/DogeContract.sol";
+import "../contracts/DogeContract.sol";
 
 contract DogeFlow {
 mapping(address => DogeContract) doggies;
 mapping(address => DogeContract) dogged;
 mapping(address => DogeContract) balance;
+mapping(address => address) 
 address owner;
 
 function AddMoney() payable returns (bool){
@@ -41,7 +42,7 @@ DogeContract _contract = DogeContract(_name, _description, _startTime, _endTime,
 doggies[msg.sender] = _contract;
 return true;
 }
-if (doggies[msg.sender].terminated){
+if (doggies[msg.sender].GetTerminated()){
 DogeContract _contract = DogeContract(_name, _description, _startTime, _endTime, _bounty, _deposit);
 doggies[msg.sender] = _contract;
 return true;
@@ -50,7 +51,14 @@ return false;
 
 }
 
+function ConfirmB(){
+if (!dogged[msg.sender])
+DogeContract _contract = 
 
+
+
+
+}
 
 
 
@@ -69,6 +77,6 @@ function adopt(uint petId) public returns (uint) {
 }
 // Retrieving the adopters
 function getAdopters() public view returns (address[16]) {
-  return adopters;
+ // return adopters;
 }
 }

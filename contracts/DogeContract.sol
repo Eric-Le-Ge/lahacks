@@ -30,6 +30,8 @@ phase = 0;
 taken =  false;
 terminated = false;
 }
+//getter functions
+function GetTerminated() public returns(bool) { return terminated; }
 
 function Accept(address _contracter) public returns (bool){
 if (phase == 0 && _contracter!=owner&& !terminated){
