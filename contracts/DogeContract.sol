@@ -57,7 +57,8 @@ function ConfirmA() public returns (bool){
 if (phase != 2) {
 return false;
 }
-phase = 3;
+terminated = true;
+channel = 0;
 return true;
 }
 

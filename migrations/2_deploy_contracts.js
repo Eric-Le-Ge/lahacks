@@ -1,5 +1,8 @@
-var Adoption = artifacts.require("Adoption");
+var DogeFlow = artifacts.require("DogeFlow");
+var DogeContract = artifacts.require("DogeContract");
+
 
 module.exports = function(deployer) {
-  deployer.deploy(Adoption);
+  deployer.deploy(DogeFlow);
+  deployer.deploy(DogeContract);
 };

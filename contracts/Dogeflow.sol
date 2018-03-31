@@ -70,22 +70,51 @@ return doggies[_owner].Accept(msg.sender);
 }
 
 
-function ConfirmB(){
+function ConfirmB() public returns (bool){
+require (contracted[msg.sender]);
 address _owner = contracts[msg.sender];
-\\ if (dogged[msg.sender])
-
-
-
-
-
+DogeContract _contract = doggies[msg.sender];
+if (!dogged[_owner]||_contract.GetTerminated()){
+return false;
+}
+if (msg.sender != _contract.contracter || balances[msg.sender] < _contract.deposit){
+return false;
+}
+balances[msg.sender] -= _contract.deposit;
+if (!contract.ConfirmB()){
+balances[msg.sender] += _contract.deposit;
+}
+return true;
 }
 
+function ConfirmA() public returns (bool){
+require(dogged[msg.sender]);
+if (contract.ConfirmA()){
+balances[msg.contracter] += _contract.deposit;
+return true;
+}
+return false;
+}
 
+function Cancel() public returns (bool){
+require(dogged[msg.sender]);
+uint amount = doggies[msg.sender].channel;
+if (doggies[msg.sender].Cancel()){
+balances[msg.sender] += amount;
+return true;
+}
+return false;
+}
 
-
-
-
-
+function TimeOut() public returns (bool) {
+require(dogged[msg.sender]);
+uint currentTime = now;
+DogeContract _contract = doggies[msg.sender];
+if (now > (_contract.endTime + _contract.timeout)){
+return _contract.TimeOut();
+}
+return false;
+}
 
 
 
