@@ -1,13 +1,18 @@
 pragma solidity ^0.4.17;
 
-import "../contracts/DogeContract.sol";
+import "./DogeContract.sol";
 
 contract DogeFlow {
 mapping(address => DogeContract) doggies;
-mapping(address => DogeContract) dogged;
-mapping(address => DogeContract) balance;
-mapping(address => address) 
+mapping(address => bool) dogged;
+mapping(address => uint) balance;
+mapping(address => address) contracts;
+mapping(address => bool) contracted;
 address owner;
+
+function DogeFlow() public {
+owner = msg.sender;
+}
 
 function AddMoney() payable returns (bool){
 balance[msg.sender] += msg.value;
@@ -38,22 +43,37 @@ return false;
 balance[msg.sender]-=_bounty;
 if (!dogged[msg.sender]){
 dogged[msg.sender] = true;
-DogeContract _contract = DogeContract(_name, _description, _startTime, _endTime, _bounty, _deposit);
+DogeContract _contract = new DogeContract(_name, _description, _startTime, _endTime, _bounty, _deposit);
 doggies[msg.sender] = _contract;
 return true;
 }
 if (doggies[msg.sender].GetTerminated()){
-DogeContract _contract = DogeContract(_name, _description, _startTime, _endTime, _bounty, _deposit);
+_contract = new DogeContract(_name, _description, _startTime, _endTime, _bounty, _deposit);
 doggies[msg.sender] = _contract;
 return true;
 }
 return false;
-
 }
+
+function Accept(address _owner) public returns (bool){
+if (!dogged[_owner] || doggies[_owner].GetTerminated == true){
+return false;
+}
+if (!contracted[msg.sender]){
+
+if (doggies[_owner].Accept(msg.sender)){
+contracted[msg.sender] = true;
+}
+return true;
+}
+return doggies[_owner].Accept(msg.sender);
+}
+
 
 function ConfirmB(){
-if (!dogged[msg.sender])
-DogeContract _contract = 
+address _owner = contracts[msg.sender];
+\\ if (dogged[msg.sender])
+
 
 
 
@@ -68,15 +88,5 @@ DogeContract _contract =
 
 
 
-function adopt(uint petId) public returns (uint) {
-  require(petId >= 0 && petId <= 15);
 
-  adopters[petId] = msg.sender;
-
-  return petId;
-}
-// Retrieving the adopters
-function getAdopters() public view returns (address[16]) {
- // return adopters;
-}
 }
