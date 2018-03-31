@@ -31,7 +31,13 @@ taken =  false;
 terminated = false;
 }
 //getter functions
-function GetTerminated() public returns(bool) { return terminated; }
+function GetTerminated() public view returns(bool) { return terminated; }
+function GetContracter() public view returns(address) { return contracter; }
+function GetDeposit() public view returns(uint) { return deposit; }
+function GetEndTime() public view returns(uint) { return endTime; }
+function GetTimeOut() public view returns(uint) { return timeout; }
+function GetChannel() public view returns(uint) { return channel; }
+
 
 function Accept(address _contracter) public returns (bool){
 if (phase == 0 && _contracter!=owner&& !terminated){
@@ -81,5 +87,3 @@ return false;
 }
 }
 
-
-}
