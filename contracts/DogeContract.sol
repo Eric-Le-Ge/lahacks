@@ -60,7 +60,7 @@ return true;
 }
 
 function ConfirmA() public returns (bool){
-if (phase != 2) {
+if (phase < 2) {
 return false;
 }
 terminated = true;

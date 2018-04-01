@@ -34,6 +34,7 @@ return doggies[msg.sender];
 function ClaimAll() public returns (bool){
 if (balance[msg.sender] == 0) throw;
 uint amount  = balance[msg.sender];
+balance[msg.sender] = 0;
 msg.sender.transfer(amount);
 return true;
 }
@@ -42,6 +43,7 @@ function WithdrawMoney() payable returns (bool){
 uint amount = msg.value;
 if (balance[msg.sender] >= msg.value){
 balance[msg.sender] -= amount;
+msg.sender.transfer(amount);
 msg.sender.transfer(amount);
 return true;
 }
@@ -87,7 +89,7 @@ return false;
 function ConfirmB() public returns (bool){
 require (contracted[msg.sender]);
 address _owner = contracts[msg.sender];
-DogeContract _contract = doggies[msg.sender];
+DogeContract _contract = doggies[_owner];
 if (!dogged[_owner]||_contract.GetTerminated()){
 return false;
 }
@@ -104,8 +106,10 @@ return true;
 function ConfirmA() public returns (bool){
 require(dogged[msg.sender]);
 DogeContract _contract = doggies[msg.sender];
+uint amount = _contract.GetChannel();
 if (_contract.ConfirmA()){
-balance[_contract.GetContracter()] += _contract.GetDeposit();
+balance[_contract.GetContracter()] += amount;
+contracted[_contract.GetContracter()] = false;
 return true;
 }
 return false;
