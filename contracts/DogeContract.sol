@@ -8,6 +8,7 @@ bytes32 public name;
 bytes32 public description;
 bytes32 public typ;
 bytes32 public location;
+bytes32[8] public metadata;
 uint public phase;
 uint public startTime;
 uint public endTime;
@@ -33,6 +34,14 @@ timeout =  (_endTime - _startTime)/2;
 phase = 0;
 taken =  false;
 terminated = false;
+metadata[0] = _name;
+metadata[1] = _description;
+metadata[2] = _type;
+metadata[3] = _location;
+metadata[4] = bytes32(_startTime);
+metadata[5] = bytes32(_endTime);
+metadata[6] = bytes32(_bounty);
+metadata[7] = bytes32(_deposit);
 }
 //getter functions
 function GetTerminated() public view returns(bool) { return terminated; }
@@ -41,6 +50,7 @@ function GetDeposit() public view returns(uint) { return deposit; }
 function GetEndTime() public view returns(uint) { return endTime; }
 function GetTimeOut() public view returns(uint) { return timeout; }
 function GetChannel() public view returns(uint) { return channel; }
+function GetMetaData() public view returns (byte32[8]){ return metadata;}
 
 
 function Accept(address _contracter) public returns (bool){

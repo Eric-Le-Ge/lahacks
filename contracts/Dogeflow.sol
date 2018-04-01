@@ -38,7 +38,11 @@ return doggies[target];
 function GetContract() public view returns (DogeContract){
 return doggies[msg.sender];
 
+}
 
+function GetMetaData(address adr) public view returns (byte32[8]){
+require (dogged[adr] == true);
+return doggies[adr].GetMetaData();
 }
 
 
