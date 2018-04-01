@@ -19,6 +19,18 @@ balance[msg.sender] += msg.value;
 return true;
 }
 
+
+function GetBalance() public view returns (uint){
+return balance[msg.sender];
+}
+
+function GetContract() public view retuns (DogeContract){
+return doggies[msg.sender];
+
+
+}
+
+
 function ClaimAll() public returns (bool){
 if (balance[msg.sender] == 0) throw;
 uint amount  = balance[msg.sender];
