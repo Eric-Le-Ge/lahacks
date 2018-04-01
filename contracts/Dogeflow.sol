@@ -24,6 +24,17 @@ function GetBalance() public view returns (uint){
 return balance[msg.sender];
 }
 
+function hasAccepted() public view returns (bool){
+address target = contracts[msg.sender];
+return (target != 0x0000000000000000000000000000000000000000);
+
+}
+
+function GetAccepted() public view returns (DogeContract){
+address target = contracts[msg.sender];
+return doggies[target];
+}
+
 function GetContract() public view returns (DogeContract){
 return doggies[msg.sender];
 
@@ -50,19 +61,19 @@ return true;
 return false;
 }
 
-function Announce(bytes32 _name, bytes32 _description, uint _startTime, uint _endTime, uint _bounty, uint _deposit) public returns (bool){
+function Announce(bytes32 _name, bytes32 _description, bytes32 _type, bytes32 _location, uint _startTime, uint _endTime, uint _bounty, uint _deposit) public returns (bool){
 if (balance[msg.sender] < _bounty){
 return false;
 }
 balance[msg.sender]-=_bounty;
 if (!dogged[msg.sender]){
 dogged[msg.sender] = true;
-DogeContract _contract = new DogeContract(_name, _description, _startTime, _endTime, _bounty, _deposit);
+DogeContract _contract = new DogeContract(_name, _description, _type, _location, _startTime, _endTime, _bounty, _deposit);
 doggies[msg.sender] = _contract;
 return true;
 }
 if (doggies[msg.sender].GetTerminated()){
-_contract = new DogeContract(_name, _description, _startTime, _endTime, _bounty, _deposit);
+_contract = new DogeContract(_name, _description, _type, _location, _startTime, _endTime, _bounty, _deposit);
 doggies[msg.sender] = _contract;
 return true;
 }

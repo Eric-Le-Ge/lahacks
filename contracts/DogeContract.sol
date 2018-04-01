@@ -6,6 +6,8 @@ address public owner;
 address public contracter;
 bytes32 public name;
 bytes32 public description;
+bytes32 public typ;
+bytes32 public location;
 uint public phase;
 uint public startTime;
 uint public endTime;
@@ -16,7 +18,7 @@ uint public timeout;
 bool public taken;
 bool public terminated;
 
-function DogeContract(bytes32 _name, bytes32 _description, uint _startTime, uint _endTime, uint _bounty, uint _deposit) public{
+function DogeContract(bytes32 _name, bytes32 _description, bytes32 _type, bytes32 _location, uint _startTime, uint _endTime, uint _bounty, uint _deposit) public{
 owner = msg.sender;
 name = _name;
 description = _description;
@@ -25,6 +27,8 @@ endTime = _endTime;
 channel = _bounty;
 bounty = _bounty;
 deposit = _deposit;
+typ = _type;
+location = _location;
 timeout =  (_endTime - _startTime)/2;
 phase = 0;
 taken =  false;
