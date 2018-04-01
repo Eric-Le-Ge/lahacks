@@ -1,0 +1,21 @@
+<br>
+<div class="center">
+    <a routerLink="/application" id="download-button" class="btn-large waves-effect waves-light orange">Make a Host Request</a>
+</div>
+<br>
+<ul class="pets">
+  <li *ngFor="let pet of pets">
+    <div class="pet-info">
+            <div>Name: {{pet.name}}</div>
+            <div>Description: {{pet.desc}}</div>
+            <div>Address: {{pet.location}}</div>
+            <div>Commission: {{pet.commission}}</div>
+            <div>Deposit: {{pet.deposit}}</div>
+            <div>Start Date: {{pet.startdate}}</div>
+            <div>End Date: {{pet.enddate}}</div>
+            <img src={{pet.picture}} alt="" width="40%" height="40%">
+    </div>
+    <br>
+  </li>
+  
+</ul>

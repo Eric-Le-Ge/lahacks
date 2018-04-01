@@ -1,0 +1,67 @@
+<div class="main-container orange lighten-1">
+  <br>
+  <h1 class="center" style="color: white">Dogeflow Pet Host Application</h1>
+  <div style="color: white">
+      <div class="row" style="margin: auto">
+        <div class="text-entry-left">
+            <p style="text-align: right">Name: 
+              <input [(ngModel)]="pet.name" placeholder="Evelyn" style="width: 50%; text-align: left">
+            </p>
+        </div>
+        <div class="text-entry-right">
+            <p style="text-align: left">Description: 
+              <input [(ngModel)]="pet.desc" placeholder="Golden Retriever Dog" style="width: 50%; text-align: left">
+            </p>
+        </div>
+      </div>
+      <div class="row" style="margin: auto">
+        <div class="text-entry-left">
+          <p style="text-align: right">Address Line 1: 
+            <input [(ngModel)]="pet.address1" placeholder="2010 Milvia Street" style="width: 50%; text-align: left">
+          </p>
+        </div>
+        <div class="text-entry-right">
+          <p style="text-align: left">Address Line 2: 
+            <input [(ngModel)]="pet.address2" placeholder="Berkeley CA 94720" style="width: 50%; text-align: left">
+          </p>
+        </div>
+    </div>
+    <div class="row" style="margin: auto">
+        <div class="text-entry-left">
+            <p style="text-align: right">Host Start Date: 
+              <input [(ngModel)]="pet.host_start_time" placeholder="MM/DD/YYYY" style="width: 50%; text-align: left">
+            </p>
+        </div>
+        <div class="text-entry-right">
+            <p style="text-align: left">Host End Date: 
+              <input [(ngModel)]="pet.host_end_time" placeholder="MM/DD/YYYY" style="width: 50%; text-align: left">
+            </p>
+        </div>
+    </div>
+    <div class="row" style="margin: auto">
+        <div class="text-entry-left">
+            <p style="text-align: right">Commission: 
+              <input [(ngModel)]="pet.fee" placeholder="$100" style="width: 50%; text-align: left">
+            </p>
+        </div>
+        <div class="text-entry-right">
+            <p style="text-align: left">Deposit: 
+              <input [(ngModel)]="pet.deposit" placeholder="$150" style="width: 50%; text-align: left">
+            </p>
+        </div>
+    </div>
+    <div class="row" style="margin: auto">
+        <div class="text-entry-left" style="text-align: right">
+          <input type="file" id="file" name="file"/>
+        </div>
+        <div class="text-entry-right" style="text-align: left">
+          <button ng-click="add()">Add</button>        
+        </div>
+    </div>
+    <br><br>
+    <div class="center">
+      <a routerLink="/###" id="download-button" class="btn-large waves-effect waves-light orange">Submit</a>
+    </div>
+    <br><br>
+  </div>
+</div>
