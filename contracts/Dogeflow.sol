@@ -24,7 +24,7 @@ function GetBalance() public view returns (uint){
 return balance[msg.sender];
 }
 
-function GetContract() public view retuns (DogeContract){
+function GetContract() public view returns (DogeContract){
 return doggies[msg.sender];
 
 
@@ -75,10 +75,12 @@ if (!contracted[msg.sender]){
 
 if (doggies[_owner].Accept(msg.sender)){
 contracted[msg.sender] = true;
-}
+contracts[msg.sender] = _owner;
 return true;
 }
-return doggies[_owner].Accept(msg.sender);
+return false;
+}
+return false;
 }
 
 
