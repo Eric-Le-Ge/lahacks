@@ -1,3 +1,41 @@
+## Introduction
+Many of our friends at UC Berkeley own a pet, either adopted recently or raised for years. During spring break, everyone has made vacation plan, which gives the pet owners a hard time to figure out what to do with their left-home pet, because they can barely find someone who stays home and willing to look after their pet while they are away. Inspired by the situation, our team came up with the idea of building a decentralized application that helps connect the pet owners in need and the people who are willing to help them out for a quick one-time income (or just for fun). 
+
+## What it does
+
+Our project is a Ethereum based web application for the entertainment of pet industry. The goal of our project is to efficiently help pet owners locate a trustworthy babysitter of their beloved pet when they are about to be go on a distant trip. A pet owner looking for a temporary pet care taker can post relevant information of the pet on the website, e.g. a bulldog, Persian cat, or a Havana rabbit, while the people interested in responding can quickly make contact and get a one-time payment. The use of smart contracts in our project eliminates the need to rely on any third party medium, thereby allowing our website to be one hundred percent trustless and efficient. On the other hand, the immutability of the Ethereum blockchain prevents fraud through ensuring traceability in all transaction histories.
+
+
+## How we built it
+
+Building a Dapp: back-end smart contract + front-end construction
+
+back-end:
+
+1.	we used Truffle box to create a Truffle project which generated a default Truffle directory structure.
+2.	we created the core files in the contracts/ directory where we constructed the essential smart contracts that outline the operations of how pet owners interact with potential pet care takers, using Solidity.
+3.	we used Ganache to generate a personal blockchain for our Dapp
+4.	After successfully compiling the contracts, we migrated them to the blockchain.
+5.	We ran a couple of tests on the contracts. 
+
+front-end:
+1.	a home page with a start button
+2.	by clicking “start”, you enter the main page with a list displaying all the pets looking for a “babysitter”
+3.	by clicking “add”, you enter the page where you can make a new post as a pet owner looking for help. 
+4.	by clicking any pet, you enter the page where you can interact with the pet’s owner to make  further arrangements.
+
+we used web3 to connect the front-end construction with back-end logic
+
+
+## Challenges we ran into
+
+1.	the front-end development is more sophisticated than we predicted in that our code not only needs to display information, but also to support users to add new information from the website’s end.
+2.	people flake. both the pet owners and potential pet care takers can flake before a deal is confirmed. we spent a considerable amount of time perfecting the procedure of dogeflow service.
+3.	Solidity testing was especially tricky with the truffle framework as accounts are not explicitly manageable. Fortunately we solved this problem by manually testing on the Remix ide.
+
+
+
+# Dependencies
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
