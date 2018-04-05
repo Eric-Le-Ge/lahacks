@@ -27,12 +27,6 @@ front-end:
 we used web3 to connect the front-end construction with back-end logic
 
 
-## Challenges we ran into
-
-1.	the front-end development is more sophisticated than we predicted in that our code not only needs to display information, but also to support users to add new information from the website’s end.
-2.	people flake. both the pet owners and potential pet care takers can flake before a deal is confirmed. we spent a considerable amount of time perfecting the procedure of dogeflow service.
-3.	Solidity testing was especially tricky with the truffle framework as accounts are not explicitly manageable. Fortunately we solved this problem by manually testing on the Remix ide.
-
 
 
 # Dependencies
