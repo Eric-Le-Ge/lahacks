@@ -1,3 +1,5 @@
+![alt text](https://raw.githubusercontent.com/Eric-Le-Ge/lahacks/master/DogeFlow.png)
+
 ## Introduction
 Many of our friends at UC Berkeley own a pet, either adopted recently or raised for years. During spring break, everyone has made vacation plan, which gives the pet owners a hard time to figure out what to do with their left-home pet, because they can barely find someone who stays home and willing to look after their pet while they are away. Inspired by the situation, our team came up with the idea of building a decentralized application that helps connect the pet owners in need and the people who are willing to help them out for a quick one-time income (or just for fun). 
 
